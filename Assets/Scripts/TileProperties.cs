@@ -8,6 +8,7 @@ public class TileProperties : MonoBehaviour
     public Material builtMaterial;
     public Material unbuiltMaterial;
     public Material expansionMaterial;
+    public bool hasPlacedStructure => placedStructure != null;
 
     public enum TileOccupancy
     {
@@ -18,6 +19,7 @@ public class TileProperties : MonoBehaviour
     }
 
     public TileOccupancy occupancy = TileOccupancy.Empty;
+    public PlaceableStructure placedStructure;
 
     public void UpdateVisual()
     {
