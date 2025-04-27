@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9200568887985551202}
   - component: {fileID: 4315796846544853064}
   - component: {fileID: 1310877507423012418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GridTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,11 +115,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExpansionZone: 0
-  expansionMaterial: {fileID: 2100000, guid: 13be9b3eeb5674f17a724ce7004695ad, type: 2}
   isBuilt: 0
-  occupancy: 0
   builtMaterial: {fileID: 2100000, guid: 24a26dc22c88d4a47a13b5f5bfd8ba8f, type: 2}
   unbuiltMaterial: {fileID: 2100000, guid: 3925a5e353e9a4ecb9e3338d28d9a452, type: 2}
+  expansionMaterial: {fileID: 2100000, guid: 13be9b3eeb5674f17a724ce7004695ad, type: 2}
+  occupancy: 0
+  placedStructure: {fileID: 0}
 --- !u!1 &8008606378929828168
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4770167218292797539}
   - component: {fileID: 625865117460096302}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}

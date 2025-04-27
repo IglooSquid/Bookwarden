@@ -7,7 +7,6 @@ public class TileClickHandler : MonoBehaviour
 
     void Start()
     {
-        // Invert the layer mask to exclude the Wall layer
         clickableMask = ~LayerMask.GetMask("Wall");
     }
 
@@ -15,9 +14,16 @@ public class TileClickHandler : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            if (GameModeManager.Instance == null || !GameModeManager.Instance.IsInBuildMode())
+            {
+                return;
+            }
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, clickableMask))
             {
+                Debug.Log("Hit object: " + hit.collider.gameObject.name);
+
                 GridTileClick tile = hit.collider.GetComponentInParent<GridTileClick>();
                 if (tile != null)
                 {
@@ -37,6 +43,10 @@ public class TileClickHandler : MonoBehaviour
                         props.placedStructure = structure;
                     }
                 }
+            }
+            else
+            {
+                Debug.Log("Nothing was hit by the raycast.");
             }
         }
     }
