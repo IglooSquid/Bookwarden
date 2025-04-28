@@ -3,7 +3,6 @@ using UnityEngine;
 public class TileClickHandler : MonoBehaviour
 {
     private LayerMask clickableMask;
-    public GameObject buildablePrefab;
 
     void Start()
     {
@@ -33,8 +32,20 @@ public class TileClickHandler : MonoBehaviour
                 TileProperties props = hit.collider.GetComponentInParent<TileProperties>();
                 if (props != null && props.isBuilt && !props.hasPlacedStructure)
                 {
-                    Debug.Log("Placing object");
-                    GameObject placed = Instantiate(buildablePrefab, props.transform.position, Quaternion.identity);
+                    if (BuildManager.Instance == null || !BuildManager.Instance.HasSelectedItem())
+                    {
+                        Debug.Log("No item selected, skipping placement.");
+                        return;
+                    }
+
+                    if (BuildManager.Instance.selectedItem.prefab == null)
+                    {
+                        Debug.LogWarning("Selected item has no prefab assigned!");
+                        return;
+                    }
+
+                    Debug.Log("Placing object: " + BuildManager.Instance.selectedItem.itemName);
+                    GameObject placed = Instantiate(BuildManager.Instance.selectedItem.prefab, props.transform.position, Quaternion.identity);
                     placed.transform.SetParent(props.transform);
 
                     PlaceableStructure structure = placed.GetComponent<PlaceableStructure>();
