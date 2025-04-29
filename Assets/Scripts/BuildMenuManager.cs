@@ -1,3 +1,4 @@
+using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -13,9 +14,14 @@ public class BuildMenuManager : MonoBehaviour
 
     private bool menuOpen = false;
 
-private void OnEnable()
+    private GameControls inputActions;
+
+    private void OnEnable()
     {
         UpdateVisibilityBasedOnMode();
+        inputActions = new GameControls();
+        inputActions.Enable();
+        inputActions.Gameplay.ClearSelection.performed += ctx => ClearSelection();
     }
 
     void Start()
@@ -27,15 +33,13 @@ private void OnEnable()
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(1))
-        {
-            BuildManager.Instance.ClearSelection();
-            selectedPrefabText.text = "Selected Prefab: None";
-            buildMenuPanel.SetActive(false);
-            menuOpen = false;
-        }
-
         UpdateVisibilityBasedOnMode();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Gameplay.ClearSelection.performed -= ctx => ClearSelection();
+        inputActions.Disable();
     }
 
     private void UpdateVisibilityBasedOnMode()
@@ -75,5 +79,16 @@ private void OnEnable()
                 });
             }
         }
+    }
+
+    private void ClearSelection()
+    {
+        if (!GameModeManager.Instance.IsInBuildMode())
+            return;
+
+        BuildManager.Instance.ClearSelection();
+        selectedPrefabText.text = "Selected Prefab: None";
+        buildMenuPanel.SetActive(false);
+        menuOpen = false;
     }
 }

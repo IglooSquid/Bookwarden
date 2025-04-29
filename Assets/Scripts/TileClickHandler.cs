@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TileClickHandler : MonoBehaviour
 {
     private LayerMask clickableMask;
+    private GameControls controls;
 
     void Start()
     {
@@ -11,7 +13,7 @@ public class TileClickHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (controls.Gameplay.Select.triggered)
         {
             if (GameModeManager.Instance == null || !GameModeManager.Instance.IsInBuildMode())
             {
@@ -60,5 +62,25 @@ public class TileClickHandler : MonoBehaviour
                 Debug.Log("Nothing was hit by the raycast.");
             }
         }
+
+        if (controls.Gameplay.ClearSelection.triggered)
+        {
+            BuildManager.Instance.ClearSelection();
+            Debug.Log("Selection cleared.");
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (controls == null)
+        {
+            controls = new GameControls();
+        }
+        controls.Gameplay.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Gameplay.Disable();
     }
 }

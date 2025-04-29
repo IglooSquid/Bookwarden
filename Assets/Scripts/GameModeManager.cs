@@ -5,6 +5,8 @@ public class GameModeManager : MonoBehaviour
 {
     public static GameModeManager Instance;
 
+    private GameControls controls;
+
     public enum GameMode
     {
         Play,
@@ -21,6 +23,10 @@ public class GameModeManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        controls = new GameControls();
+        controls.Gameplay.ToggleBuildMode.performed += ctx => ToggleMode();
+        controls.Enable();
     }
 
     void Start()
@@ -30,10 +36,6 @@ public class GameModeManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            ToggleMode();
-        }
     }
 
     public void ToggleMode()
@@ -53,5 +55,11 @@ public class GameModeManager : MonoBehaviour
     public bool IsInBuildMode()
     {
         return currentMode == GameMode.Build;
+    }
+
+    void OnDestroy()
+    {
+        if (controls != null)
+            controls.Disable();
     }
 }
