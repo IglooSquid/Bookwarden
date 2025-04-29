@@ -30,7 +30,7 @@ public class TileClickHandler : MonoBehaviour
                 }
 
                 TileProperties props = hit.collider.GetComponentInParent<TileProperties>();
-                if (props != null && props.isBuilt && !props.hasPlacedStructure)
+                if (props != null && props.isBuilt && props.placedStructure == null)
                 {
                     if (BuildManager.Instance == null || !BuildManager.Instance.HasSelectedItem())
                     {
@@ -48,7 +48,7 @@ public class TileClickHandler : MonoBehaviour
                     GameObject placed = Instantiate(BuildManager.Instance.selectedItem.prefab, props.transform.position, Quaternion.identity);
                     placed.transform.SetParent(props.transform);
 
-                    PlaceableStructure structure = placed.GetComponent<PlaceableStructure>();
+                    PlaceableStructure structure = placed.GetComponentInChildren<PlaceableStructure>();
                     if (structure != null)
                     {
                         props.placedStructure = structure;
