@@ -302,7 +302,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 438030826}
-  - component: {fileID: 438030827}
   - component: {fileID: 438030828}
   m_Layer: 0
   m_Name: CameraRig
@@ -327,18 +326,6 @@ Transform:
   - {fileID: 1844332363}
   m_Father: {fileID: 745918793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &438030827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438030825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67d98b79eaa144cdd998075e97070253, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &438030828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +346,7 @@ MonoBehaviour:
   rotationStep: 90
   movementThreshold: 0.5
   rotationThreshold: 2
+  zoomSmoothTime: 0.1
 --- !u!1 &745918792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,6 +1696,7 @@ MonoBehaviour:
     itemName: 
     prefab: {fileID: 0}
     isUnlocked: 1
+  ghostMaterial: {fileID: 2100000, guid: 2cdf0d2026b7c46e3bab3326cb3bd520, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
