@@ -80,6 +80,10 @@ public class LibraryGridGenerator : MonoBehaviour
                         else if (defaultUnbuiltMaterial != null)
                             rend.material = defaultUnbuiltMaterial;
                     }
+                    if (!isBuilt)
+                    {
+                        tile.AddComponent<ExpansionTileController>();
+                    }
                 }
             }
         }

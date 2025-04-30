@@ -5,6 +5,8 @@ public class GameModeManager : MonoBehaviour
 {
     public static GameModeManager Instance;
 
+    public System.Action<bool> OnModeChanged;
+
     private GameControls controls;
 
     public enum GameMode
@@ -41,6 +43,8 @@ public class GameModeManager : MonoBehaviour
     public void ToggleMode()
     {
         currentMode = (currentMode == GameMode.Play) ? GameMode.Build : GameMode.Play;
+        OnModeChanged?.Invoke(IsInBuildMode());
+        BuildManager.Instance?.RefreshAllIndicators();
         UpdateModeUI();
     }
 

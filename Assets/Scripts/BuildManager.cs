@@ -32,4 +32,12 @@ public class BuildManager : MonoBehaviour
     {
         return selectedItem != null;
     }
+
+    public void RefreshAllIndicators()
+    {
+        foreach (var indicator in GameObject.FindObjectsOfType<IndicatorController>(true))
+        {
+            indicator.UpdateIndicators(GameModeManager.Instance.IsInBuildMode());
+        }
+    }
 }
