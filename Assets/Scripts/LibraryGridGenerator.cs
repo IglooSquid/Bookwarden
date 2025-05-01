@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.AI;
+using Unity.AI.Navigation;
 
 public class LibraryGridGenerator : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class LibraryGridGenerator : MonoBehaviour
     private Transform wallsParent;
     private Dictionary<Vector2Int, GameObject> tileMap = new Dictionary<Vector2Int, GameObject>();
     private int chunkSize = 5;
+    public static event System.Action OnGridReady;
 
     void Start()
     {
@@ -45,6 +48,10 @@ public class LibraryGridGenerator : MonoBehaviour
         wallsParent = new GameObject("WallsRoot").transform;
         wallsParent.parent = transform;
         PlaceWallsForBuiltTiles();
+
+        GetComponent<NavMeshSurface>().BuildNavMesh();
+
+        OnGridReady?.Invoke();
     }
 
     void PlaceChunk(Vector2Int origin, bool isBuilt)

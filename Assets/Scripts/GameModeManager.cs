@@ -61,6 +61,11 @@ public class GameModeManager : MonoBehaviour
         return currentMode == GameMode.Build;
     }
 
+    public bool IsInPlayMode()
+    {
+        return currentMode == GameMode.Play;
+    }
+
     void OnDestroy()
     {
         if (controls != null)

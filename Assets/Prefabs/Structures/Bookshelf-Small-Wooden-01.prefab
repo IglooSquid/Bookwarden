@@ -206,6 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 658252764822012330}
   - component: {fileID: 7700800014071252126}
+  - component: {fileID: 7130115161049414915}
   m_Layer: 0
   m_Name: LogicRoot
   m_TagString: Untagged
@@ -245,6 +246,22 @@ MonoBehaviour:
   blocksTile: 1
   size: {x: 1, y: 1}
   description: Simple wooden bookshelf for all your favorite books
+--- !u!208 &7130115161049414915
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9076281634081948066}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.25, y: 1, z: 0.125}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.05, z: 0.2}
+  m_TimeToStationary: 0.5
 --- !u!1001 &8124662933809615084
 PrefabInstance:
   m_ObjectHideFlags: 0

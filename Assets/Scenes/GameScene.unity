@@ -376,14 +376,61 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 438030826}
-  - {fileID: 1891603076}
-  - {fileID: 1546750506}
-  - {fileID: 1945054211}
   - {fileID: 2087727321}
+  - {fileID: 1546750506}
+  - {fileID: 848491988}
   - {fileID: 1114778729}
+  - {fileID: 438030826}
+  - {fileID: 1945054211}
+  - {fileID: 1891603076}
   m_Father: {fileID: 1514428078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &848491987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 848491988}
+  - component: {fileID: 848491989}
+  m_Layer: 0
+  m_Name: CharacterManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &848491988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848491987}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 745918793}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &848491989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848491987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9972b0d85e0cd488db9a252a44aca467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 5895026992532072202, guid: 2f81abd116b434a9ebc257c0abb01094, type: 3}
+  playerSpawnOffset: {x: 2, y: 0, z: 2}
 --- !u!1 &1114778728
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,6 +600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1546750506}
   - component: {fileID: 1546750507}
+  - component: {fileID: 1546750508}
   m_Layer: 0
   m_Name: LibraryRoot
   m_TagString: Untagged
@@ -593,6 +641,38 @@ MonoBehaviour:
   defaultBuiltMaterial: {fileID: 2100000, guid: 24a26dc22c88d4a47a13b5f5bfd8ba8f, type: 2}
   defaultExpansionMaterial: {fileID: 2100000, guid: 3925a5e353e9a4ecb9e3338d28d9a452, type: 2}
   showExpansionZones: 1
+--- !u!114 &1546750508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546750505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 0}
+  m_BuildHeightMesh: 0
 --- !u!1 &1589139356
 GameObject:
   m_ObjectHideFlags: 0
